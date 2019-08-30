@@ -7,7 +7,7 @@ When I input the employee's details: first name, last name, annual salary and su
 The calculation details will be the following:
 - pay period = per calendar month
 - gross income = annual salary / 12 months
-- income tax = based on the tax table provided below
+- income tax = based on the tax table provided in the PDF
 - net income = gross income - income tax
 - super = gross income x super rate
 - pay = net income - super
