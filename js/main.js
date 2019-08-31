@@ -15,3 +15,4 @@ function roundNumber(number) {
 
     return number;
 }
+module.exports = roundNumber;
