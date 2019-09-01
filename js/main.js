@@ -1,12 +1,3 @@
-module.exports = {
-    roundNumber: roundNumber,
-    calculateGrossIncome: calculateGrossIncome,
-    calculateIncomeTax: calculateIncomeTax,
-    calculateNetIncome: calculateNetIncome,
-    calculateSuper: calculateSuper,
-    calculatePay: calculatePay
-};
-
 const CONST = {
     MONTHS: 12,
     INCOME_TAX: [
@@ -157,3 +148,12 @@ function formatDollarValue(unformattedDollarValue) {
     return dollarValue;
 }
 
+export {
+    roundNumber,
+    calculateGrossIncome,
+    calculateIncomeTax,
+    calculateNetIncome,
+    calculateSuper,
+    calculatePay,
+    formatDollarValue
+};

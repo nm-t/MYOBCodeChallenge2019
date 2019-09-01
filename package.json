@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nm-t/MYOBCodeChallenge2019#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "jest": "^24.9.0"
   }
 }

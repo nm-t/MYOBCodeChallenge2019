@@ -1,3 +1,12 @@
+import {
+    calculateGrossIncome,
+    calculateIncomeTax,
+    calculateNetIncome,
+    calculateSuper,
+    calculatePay,
+    formatDollarValue
+} from './main.js';
+
 function generatePayslip(firstName, familyName, annualSalary, superRate) {
     const $container = $('main');
 
