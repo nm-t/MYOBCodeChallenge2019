@@ -144,3 +144,11 @@ function calculatePay(annualSalary, superRate) {
 
     return pay;
 }
+
+$('.generate-payslip').on('click', function(e) {
+    e.preventDefault();
+    const firstName = $('.first-name').val();
+    const familyName = $('.family-name').val();
+    const annualSalary = $('.annual-salary').val();
+    const superRate = $('.super-rate').val();
+});
