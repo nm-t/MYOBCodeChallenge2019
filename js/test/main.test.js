@@ -58,3 +58,10 @@ test('Calculates Super of 60050 at a rate of 9% to be 450', () => {
     const superRate = 0.09;
     expect(functions.calculateSuper(grossIncome, superRate)).toBe(450);
 });
+
+// Calculate Pay
+test('Calculates Pay of 60050 at a rate of 9% to be 3632', () => {
+    const annualSalary = 60050;
+    const superRate = 0.09;
+    expect(functions.calculatePay(annualSalary, superRate)).toBe(3632);
+});
