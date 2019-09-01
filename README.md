@@ -33,3 +33,6 @@ _Provide instructions on how to run the application._
 
 ### Testing
 _Provide a test harness to validate your solution._
+
+From the CLI, run `npm run test`. Tests are written within the Jest test framework.
+
