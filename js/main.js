@@ -57,8 +57,8 @@ function roundNumber(number) {
 
 /**
  * calculateGrossIncome(annualSalary)
- * @param {*} annualSalary Number to be rounded
- * Returns input rounded up (if >= 0.5), or down
+ * @param {*} annualSalary Employee's annual salary
+ * Returns gross monthly income
  */
 function calculateGrossIncome(annualSalary) {
     let grossIncome = annualSalary / CONST.MONTHS;
