@@ -27,3 +27,20 @@ test('Calculates Gross Income of 123456 to be 10288', () => {
 test('Calculates Gross Income of 80999 to be 6750', () => {
     expect(functions.calculateGrossIncome(80999)).toBe(6750);
 });
+
+// Calculate Income Tax
+test('Calculates Income Tax of 60050 to be 922', () => {
+    expect(functions.calculateIncomeTax(60050)).toBe(922);
+});
+test('Calculates Income Tax of 40000 to be 379', () => {
+    expect(functions.calculateIncomeTax(40000)).toBe(379);
+});
+test('Calculates Income Tax of 123456 to be 2802', () => {
+    expect(functions.calculateIncomeTax(123456)).toBe(2802);
+});
+test('Calculates Income Tax of 999999 to be 35296', () => {
+    expect(functions.calculateIncomeTax(999999)).toBe(35296);
+});
+test('Calculates Income Tax of 100 to be 8', () => {
+    expect(functions.calculateIncomeTax(100)).toBe(8);
+});

@@ -25,6 +25,8 @@ Notes: All calculation results should be rounded to the whole dollar. If >= 50 c
 ### Assumptions
 _List any assumptions that you have made in order to solve this problem._
 
+- Tax rates for 2012 - 2013 apply
+
 ### Technology stack
 _List the reasons for your choice in technology stack._
 
