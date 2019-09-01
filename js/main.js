@@ -1,7 +1,8 @@
 module.exports = {
     roundNumber: roundNumber,
     calculateGrossIncome: calculateGrossIncome,
-    calculateIncomeTax: calculateIncomeTax
+    calculateIncomeTax: calculateIncomeTax,
+    calculateNetIncome: calculateNetIncome
 };
 
 const CONST = {
@@ -102,4 +103,14 @@ function calculateIncomeTax(annualSalary) {
     incomeTax = roundNumber(incomeTax);
 
     return incomeTax;
+}
+
+/**
+ * calculateNetIncome(annualSalary)
+ * @param {*} grossIncome Employee's gross income (already rounded)
+ * @param {*} incomeTax Employee's income tax (already rounded)
+ * Returns net income by subtracting incomeTax from grossIncome
+ */
+function calculateNetIncome(grossIncome, incomeTax) {
+    return grossIncome - incomeTax;
 }

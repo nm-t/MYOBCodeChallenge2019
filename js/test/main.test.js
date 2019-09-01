@@ -44,3 +44,10 @@ test('Calculates Income Tax of 999999 to be 35296', () => {
 test('Calculates Income Tax of 100 to be 8', () => {
     expect(functions.calculateIncomeTax(100)).toBe(8);
 });
+
+// Calculate Net Income
+test('Calculates Net Income of 60050 to be 922', () => {
+    const grossIncome = functions.calculateGrossIncome(60050);
+    const incomeTax = functions.calculateIncomeTax(60050);
+    expect(functions.calculateNetIncome(grossIncome, incomeTax)).toBe(4082);
+});
