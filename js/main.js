@@ -159,7 +159,14 @@ function formatDollarValue(unformattedDollarValue) {
 
 function generatePayslip(firstName, familyName, annualSalary, superRate) {
     const $container = $('main');
-    // const payDate =
+
+    const dateObj = new Date();
+    const date = dateObj.getDate(),
+          monthIndex = dateObj.getMonth(),
+          year = dateObj.getFullYear();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const payDate = `${date} ${months[monthIndex]} ${year}`
+
     const grossIncome = calculateGrossIncome(annualSalary);
     const incomeTax = calculateIncomeTax(annualSalary);
     const netIncome = calculateNetIncome(grossIncome, incomeTax);
@@ -173,7 +180,7 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
             `<tbody>` +
                 `<tr>` +
                     `<th>Pay Date</th>` +
-                    `<td>30 March 2013</td>` +
+                    `<td>${payDate}</td>` +
                 `</tr>` +
                 `<tr>` +
                     `<th>Pay Frequency</th>` +
