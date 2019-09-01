@@ -51,3 +51,10 @@ test('Calculates Net Income of 60050 to be 922', () => {
     const incomeTax = functions.calculateIncomeTax(60050);
     expect(functions.calculateNetIncome(grossIncome, incomeTax)).toBe(4082);
 });
+
+// Calculate Super
+test('Calculates Super of 60050 at a rate of 9% to be 450', () => {
+    const grossIncome = functions.calculateGrossIncome(60050);
+    const superRate = 0.09;
+    expect(functions.calculateSuper(grossIncome, superRate)).toBe(450);
+});

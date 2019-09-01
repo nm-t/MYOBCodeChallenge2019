@@ -2,7 +2,8 @@ module.exports = {
     roundNumber: roundNumber,
     calculateGrossIncome: calculateGrossIncome,
     calculateIncomeTax: calculateIncomeTax,
-    calculateNetIncome: calculateNetIncome
+    calculateNetIncome: calculateNetIncome,
+    calculateSuper: calculateSuper
 };
 
 const CONST = {
@@ -113,4 +114,16 @@ function calculateIncomeTax(annualSalary) {
  */
 function calculateNetIncome(grossIncome, incomeTax) {
     return grossIncome - incomeTax;
+}
+
+/**
+ * calculateSuper(annualSalary)
+ * @param {*} grossIncome Employee's gross income (already rounded)
+ * @param {*} superRate Employee's super rate
+ * Returns super amount according to grossIncome and superRate
+ */
+function calculateSuper(grossIncome, superRate) {
+    let superValue = grossIncome * superRate;
+    superValue = roundNumber(superValue);
+    return superValue;
 }
