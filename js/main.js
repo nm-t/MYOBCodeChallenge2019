@@ -3,6 +3,10 @@ module.exports = {
     calculateGrossIncome: calculateGrossIncome
 };
 
+const CONST = {
+    MONTHS: 12,
+};
+
 /**
  * roundNumber(number)
  * @param {*} number Number to be rounded
@@ -27,7 +31,7 @@ function roundNumber(number) {
  * Returns input rounded up (if >= 0.5), or down
  */
 function calculateGrossIncome(annualSalary) {
-    let grossIncome = annualSalary / 12;
+    let grossIncome = annualSalary / CONST.MONTHS;
     grossIncome = roundNumber(grossIncome);
 
     return grossIncome;
