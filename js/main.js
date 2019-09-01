@@ -145,10 +145,75 @@ function calculatePay(annualSalary, superRate) {
     return pay;
 }
 
+/**
+ * formatDollarValue(unformattedDollarValue)
+ * @param {*} unformattedDollarValue Dollar value to be formatted
+ * Returns formatted dollar value in the form of $XX,XXX.XX
+ */
+function formatDollarValue(unformattedDollarValue) {
+    let dollarValue = Number(unformattedDollarValue);
+    dollarValue = '$ ' + dollarValue.toLocaleString();
+
+    return dollarValue;
+}
+
+function generatePayslip(firstName, familyName, annualSalary, superRate) {
+    const $container = $('main');
+    // const payDate =
+    const grossIncome = calculateGrossIncome(annualSalary);
+    const incomeTax = calculateIncomeTax(annualSalary);
+    const netIncome = calculateNetIncome(grossIncome, incomeTax);
+    const superValue = calculateSuper(grossIncome, superRate);
+    const pay = calculatePay(annualSalary, superRate);
+
+    $container.html(`` +
+        `<h1>Payslip</h1>` +
+        `<h2>${firstName} ${familyName}</h2>` +
+        `<table>` +
+            `<tbody>` +
+                `<tr>` +
+                    `<th>Pay Date</th>` +
+                    `<td>30 March 2013</td>` +
+                `</tr>` +
+                `<tr>` +
+                    `<th>Pay Frequency</th>` +
+                    `<td>Monthly</td>` +
+                `</tr>` +
+                `<tr>` +
+                    `<th>Annual Income</th>` +
+                    `<td>${formatDollarValue(annualSalary)}</td>` +
+                `</tr>` +
+                `<tr>` +
+                    `<th>Gross Income</th>` +
+                    `<td>${formatDollarValue(grossIncome)}</td>` +
+                `</tr>` +
+                `<tr>` +
+                    `<th>Income Tax</th>` +
+                    `<td>${formatDollarValue(incomeTax)}</td>` +
+                `</tr>` +
+                `<tr>` +
+                    `<th>Net Income</th>` +
+                    `<td>${formatDollarValue(netIncome)}</td>` +
+                `</tr>` +
+                `<tr>` +
+                    `<th>Super</th>` +
+                    `<td>${formatDollarValue(superValue)}</td>` +
+                `</tr>` +
+                `<tr>` +
+                    `<th>Pay</th>` +
+                    `<td>${formatDollarValue(pay)}</td>` +
+                `</tr>` +
+            `</tbody>` +
+        `</table>` +
+        `<button class="pay-employee">Pay</button>`
+    );
+}
+
 $('.generate-payslip').on('click', function(e) {
     e.preventDefault();
     const firstName = $('.first-name').val();
     const familyName = $('.family-name').val();
     const annualSalary = $('.annual-salary').val();
-    const superRate = $('.super-rate').val();
+    const superRate = Number($('.super-rate').val()) * 1/100;
+    generatePayslip(firstName, familyName, annualSalary, superRate);
 });
