@@ -21,6 +21,25 @@ let firstName,
     superValue,
     pay;
 
+$('input').on('keydown', function() {
+    $('.validation-error').hide();
+});
+
+$('.generate-payslip').on('click', function(e) {
+    e.preventDefault();
+    firstName = $('.first-name').val();
+    familyName = $('.family-name').val();
+    annualSalary = $('.annual-salary').val();
+    superRate = Number($('.super-rate').val()) * 1/100;
+
+    if (firstName && familyName && annualSalary && superRate) {
+        generatePayslip(firstName, familyName, annualSalary, superRate);
+    }
+    else {
+        $('.validation-error').show();
+    }
+});
+
 function generatePayslip(firstName, familyName, annualSalary, superRate) {
     const dateObj = new Date();
     let date = dateObj.getDate();
@@ -91,25 +110,6 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
         checkEmployee();
     });
 }
-
-$('input').on('keydown', function() {
-    $('.validation-error').hide();
-});
-
-$('.generate-payslip').on('click', function(e) {
-    e.preventDefault();
-    firstName = $('.first-name').val();
-    familyName = $('.family-name').val();
-    annualSalary = $('.annual-salary').val();
-    superRate = Number($('.super-rate').val()) * 1/100;
-
-    if (firstName && familyName && annualSalary && superRate) {
-        generatePayslip(firstName, familyName, annualSalary, superRate);
-    }
-    else {
-        $('.validation-error').show();
-    }
-});
 
 /**
  * checkEmployee()
