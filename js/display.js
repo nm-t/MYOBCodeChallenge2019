@@ -126,6 +126,9 @@ function checkEmployee() {
         async: false,
         success: function(data) {
             dbResponse = data;
+        },
+        error: function() {
+            displayOutcome('error', 'AJAX call failed. Please try again!');
         }
     });
     dbResponse = dbResponse.employees;
