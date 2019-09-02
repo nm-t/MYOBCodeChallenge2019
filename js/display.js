@@ -154,7 +154,7 @@ function checkEmployee() {
                 payEmployee();
             }
             else {
-                displayOutcome('error', 'User has already been paid this month');
+                displayOutcome('error', 'User has already been paid this month. Payslip not stored in database.');
             }
         }
         // Employee doesn't exist in the database, proceed to pay

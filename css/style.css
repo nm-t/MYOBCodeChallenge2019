@@ -20,7 +20,33 @@ h2 {
 
 .validation-error {
     display: none;
-    color: darkred;
+    color: #be1e2d;
+}
+
+.is-error::before,
+.is-success::before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.is-success {
+    color: #006838;
+}
+
+.is-success::before {
+    background-image: url('/img/success.svg');
+}
+
+.is-error {
+    color: #be1e2d;
+}
+
+.is-error::before {
+    background-image: url('/img/error.svg');
 }
 
 fieldset {
