@@ -17,7 +17,7 @@ fieldset {
 
 .input-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 15px;
 }
 
@@ -25,15 +25,12 @@ fieldset {
     position: relative;
     display: table;
     border-collapse: separate;
-    width: 50%;
-}
-
-.input-group:first-child {
-    padding-right: 10px;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .input-group:last-child {
-    padding-left: 10px;
+    margin-bottom: 0;
 }
 
 input {
@@ -109,4 +106,27 @@ button,
     background-color: #337ab7;
     text-decoration: none;
     float: right;
+}
+
+@media only screen and (min-width: 500px) {
+    .input-row {
+        flex-direction: row;
+    }
+
+    .input-group {
+        width: 50%;
+        margin-bottom: 0;
+    }
+
+    .input-group:first-child {
+        padding-right: 10px;
+    }
+
+    .input-group:last-child {
+        padding-left: 10px;
+    }
+
+    input {
+        margin-bottom: 0;
+    }
 }
