@@ -33,6 +33,9 @@ _List any assumptions that you have made in order to solve this problem._
 ### Technology stack
 _List the reasons for your choice in technology stack._
 
+#### UML Sequence Diagram
+![UML Sequence Diagram](./img/docs/SD.svg)
+
 - Front End
     - HTML/CSS/Javascript
     - [jQuery](https://jquery.com/)
@@ -89,4 +92,5 @@ UI is not tested. Tests are written within the [Jest](https://jestjs.io) test fr
 - [AWS API Gateway and DynamoDB](https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-as-a-proxy-for-dynamodb/)
 - [Listing multiple resources in an IAM role](https://forums.aws.amazon.com/thread.jspa?threadID=220021)
 - [The API must be deployed/redeployed once the CORS support settings have been updated](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html)
+- UML diagram made in [Draw.io](https://www.draw.io/)
 - [Favicon Gallery](https://www.favicon-generator.org/search/TURQUIOSE/)
