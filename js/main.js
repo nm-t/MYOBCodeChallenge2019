@@ -144,7 +144,7 @@ function calculatePay(annualSalary, superRate) {
  */
 function formatDollarValue(unformattedDollarValue) {
     let dollarValue = Number(unformattedDollarValue);
-    dollarValue = '$ ' + dollarValue.toLocaleString();
+    dollarValue = '$ ' + dollarValue.toLocaleString() + '.00';
 
     return dollarValue;
 }
