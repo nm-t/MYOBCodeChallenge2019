@@ -63,11 +63,37 @@ _List the reasons for your choice in technology stack._
 ### Running the application
 _Provide instructions on how to run the application._
 
-Please note that you must be connected to the internet for the program to run successfully - both the API and database's are hosted on AWS.
+Please note that you must be connected to the internet for the program to run successfully (even when running locally) - both the API and database are hosted on AWS.
 
-__Locally:__ From the CLI, run `node server.js`. In the browser, navigate to `localhost:3000`.
+__Locally:__ From the CLI, run `node server.js`. In a browser, navigate to `localhost:3000`.
 
 __Live:__ https://unruffled-minsky-7bbadc.netlify.com/
+
+![Screenshot of empty form](./img/docs/s1-0.png)
+
+Once you have navigated to the page successfully, proceed to fill out details of an employee:
+- First name
+- Last name
+- Annual salary
+    - Whole number (rounded)
+- Super rate
+    - Enter this as a percentage value (e.g.: 9, 9.5)
+
+![Screenshot of populated form](./img/docs/s1-1.png)
+
+Click the 'Generate Payslip' button once you are happy with the above values. The program will bring you to a screen displaying the generated payslip.
+
+![Screenshot of generated payslip](./img/docs/s2-0.png)
+
+If you would like to proceed, click the 'Pay' button. The program will then check to see if this employee has been paid in this month.
+
+If the employee has not been paid this month, you will be brought to a success screen notifying you that they have been paid!
+
+![Screenshot of success notification](./img/docs/s3-0.png)
+
+If the employee has been paid, you will be brought to an error screen notifying you that they have been paid this month and therefore will not be paid again. The payslip will not be stored in the database.
+
+![Screenshot of error notification](./img/docs/s3-1.png)
 
 ### Testing
 _Provide a test harness to validate your solution._
