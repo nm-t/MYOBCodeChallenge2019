@@ -93,13 +93,24 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
     });
 }
 
+$('input').on('keydown', function() {
+    $('.validation-error').hide();
+});
+
 $('.generate-payslip').on('click', function(e) {
     e.preventDefault();
     firstName = $('.first-name').val();
     familyName = $('.family-name').val();
     annualSalary = $('.annual-salary').val();
     superRate = Number($('.super-rate').val()) * 1/100;
-    generatePayslip(firstName, familyName, annualSalary, superRate);
+    console.log(firstName);
+
+    if (firstName && familyName && annualSalary && superRate) {
+        generatePayslip(firstName, familyName, annualSalary, superRate);
+    }
+    else {
+        $('.validation-error').show();
+    }
 });
 
 /**

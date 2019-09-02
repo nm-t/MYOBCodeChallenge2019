@@ -18,6 +18,11 @@ h2 {
     margin-top: 0;
 }
 
+.validation-error {
+    display: none;
+    color: darkred;
+}
+
 fieldset {
     border: none;
     padding: 0;

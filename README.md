@@ -42,7 +42,7 @@ From the CLI, run `npm run test`. Tests are written within the [Jest](https://je
 ## Future improvements
 
 - HAS_ROUNDING flag in CONST to enable/disable rounding of dollar values
-- Validation on form (required fields, super cannot be already in percentage format (e.g.: 0.09 instead of 9))
+- More sophisticated validation on form (super cannot be already in percentage format (e.g.: 0.09 instead of 9), reasonable super rates)
 - Reset/'Generate another' buttons
 - [Use toLocaleString() for date](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314)
 - Refactor query to use lastName as primary key (rather than firstName)
