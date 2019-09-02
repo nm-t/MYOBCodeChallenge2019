@@ -1,4 +1,5 @@
 const CONST = {
+    FREQUENCY: "Monthly",
     MONTHS: 12,
     INCOME_TAX: [
         {
@@ -149,6 +150,7 @@ function formatDollarValue(unformattedDollarValue) {
 }
 
 export {
+    CONST,
     roundNumber,
     calculateGrossIncome,
     calculateIncomeTax,

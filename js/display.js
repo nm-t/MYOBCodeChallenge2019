@@ -1,4 +1,5 @@
 import {
+    CONST,
     calculateGrossIncome,
     calculateIncomeTax,
     calculateNetIncome,
@@ -10,23 +11,40 @@ import {
 let firstName,
     familyName,
     annualSalary,
-    superRate;
+    superRate,
+    payDate,
+    grossIncome,
+    incomeTax,
+    netIncome,
+    superValue,
+    pay;
 
 function generatePayslip(firstName, familyName, annualSalary, superRate) {
     const $container = $('main');
 
     const dateObj = new Date();
-    const date = dateObj.getDate(),
-          monthIndex = dateObj.getMonth(),
-          year = dateObj.getFullYear();
+    let date = dateObj.getDate();
+    let monthIndex = dateObj.getMonth();
+    const year = dateObj.getFullYear();
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const payDate = `${date} ${months[monthIndex]} ${year}`
+    const payDatePrint = `${date} ${months[monthIndex]} ${year}`;
 
-    const grossIncome = calculateGrossIncome(annualSalary);
-    const incomeTax = calculateIncomeTax(annualSalary);
-    const netIncome = calculateNetIncome(grossIncome, incomeTax);
-    const superValue = calculateSuper(grossIncome, superRate);
-    const pay = calculatePay(annualSalary, superRate);
+    if (date.toString().length === 1) {
+        date = '0' + date;
+    };
+    // Add 1 to make month human-readable
+    monthIndex++;
+    if (monthIndex.toString().length === 1) {
+        monthIndex = ('0' + monthIndex);
+    };
+
+    payDate = `${year}-${monthIndex}-${date}`;
+    console.log(payDate);
+    grossIncome = calculateGrossIncome(annualSalary);
+    incomeTax = calculateIncomeTax(annualSalary);
+    netIncome = calculateNetIncome(grossIncome, incomeTax);
+    superValue = calculateSuper(grossIncome, superRate);
+    pay = calculatePay(annualSalary, superRate);
 
     $container.html(`` +
         `<h1>Payslip</h1>` +
@@ -35,7 +53,7 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
             `<tbody>` +
                 `<tr>` +
                     `<th>Pay Date</th>` +
-                    `<td>${payDate}</td>` +
+                    `<td>${payDatePrint}</td>` +
                 `</tr>` +
                 `<tr>` +
                     `<th>Pay Frequency</th>` +
@@ -152,8 +170,36 @@ function hasBeenPaidThisMonth(dateString) {
     return payslipMonth === currentMonth;
 }
 
+/**
+ * payEmployee(dateString)
+ * @param {string} dateString Date to parse
+ * Checks date in payslip against today's date.
+ * If the months match, the employee has been paid this month.
+ */
 function payEmployee() {
-
+    $.ajax({
+        type: "POST",
+        url: "https://nfwrihtz7i.execute-api.ap-southeast-2.amazonaws.com/Prod/employees",
+        data: JSON.stringify({
+            "firstName": firstName,
+            "lastName": familyName,
+            "grossIncome": grossIncome,
+            "incomeTax": incomeTax,
+            "netIncome": netIncome,
+            "superValue": superValue,
+            "payValue": pay,
+            "payDate": payDate,
+            "annualIncome": annualSalary,
+            "frequency": CONST.FREQUENCY
+        }),
+        contentType: "application/json",
+        success: function() {
+            displayOutcome('success', 'Payslip information has been stored.');
+        },
+        error: function() {
+            displayOutcome('error', 'AJAX call failed. Please try again!');
+        }
+    });
 }
 
 function displayOutcome(status, message) {
