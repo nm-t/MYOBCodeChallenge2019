@@ -102,13 +102,12 @@ From the CLI, run `npm run test`. Only financial functions are tested.
 UI is not tested. Tests are written within the [Jest](https://jestjs.io) test framework.
 
 ## Future improvements
-
 - Refactor DynamoDB structure to use lastName as primary key (rather than firstName)
 - More robust searching
     - Name transformation (search with toUpperCase() or toLowerCase()) when searching and storing names
     - Convert name to sentence case on display of payslip (this can have some issues with names containing multiple components, e.g.: McDonald, de Souza, Smith-Jones, etc.)
 - Refactor Javascript to use Payee object
-- HAS_ROUNDING flag in CONST to enable/disable rounding of dollar values
+- `HAS_ROUNDING` flag in `CONST` to enable/disable rounding of dollar values
 - Reset/'Generate another' buttons
 - [Use toLocaleString() for date](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314)
 - More sophisticated validation on form (super cannot be already in percentage format (e.g.: 0.09 instead of 9), reasonable super rates)
