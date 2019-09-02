@@ -39,7 +39,6 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
     };
 
     payDate = `${year}-${monthIndex}-${date}`;
-    console.log(payDate);
     grossIncome = calculateGrossIncome(annualSalary);
     incomeTax = calculateIncomeTax(annualSalary);
     netIncome = calculateNetIncome(grossIncome, incomeTax);
@@ -103,7 +102,6 @@ $('.generate-payslip').on('click', function(e) {
     familyName = $('.family-name').val();
     annualSalary = $('.annual-salary').val();
     superRate = Number($('.super-rate').val()) * 1/100;
-    console.log(firstName);
 
     if (firstName && familyName && annualSalary && superRate) {
         generatePayslip(firstName, familyName, annualSalary, superRate);
