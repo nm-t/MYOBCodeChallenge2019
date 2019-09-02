@@ -87,8 +87,8 @@ function calculateIncomeTax(annualSalary) {
         lowerBound = bracket.LOWER_BOUND - 1;
     }
 
-    // A rate of 1 indicates that the employee does not get taxed - they get the full amount back
-    let rate = 1;
+    // A rate of 0 indicates that the employee does not get taxed - they get the full amount back
+    let rate = 0;
     if (bracket.RATE != undefined) {
         rate = bracket.RATE;
     }
