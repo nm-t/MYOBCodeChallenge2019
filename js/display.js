@@ -7,6 +7,11 @@ import {
     formatDollarValue
 } from './main.js';
 
+let firstName,
+    familyName,
+    annualSalary,
+    superRate;
+
 function generatePayslip(firstName, familyName, annualSalary, superRate) {
     const $container = $('main');
 
@@ -68,9 +73,9 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
 
 $('.generate-payslip').on('click', function(e) {
     e.preventDefault();
-    const firstName = $('.first-name').val();
-    const familyName = $('.family-name').val();
-    const annualSalary = $('.annual-salary').val();
-    const superRate = Number($('.super-rate').val()) * 1/100;
+    firstName = $('.first-name').val();
+    familyName = $('.family-name').val();
+    annualSalary = $('.annual-salary').val();
+    superRate = Number($('.super-rate').val()) * 1/100;
     generatePayslip(firstName, familyName, annualSalary, superRate);
 });
