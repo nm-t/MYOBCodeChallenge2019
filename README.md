@@ -91,7 +91,7 @@ If the employee has not been paid this month, you will be brought to a success s
 
 ![Screenshot of success notification](./img/docs/s3-0.png)
 
-If the employee has been paid, you will be brought to an error screen notifying you that they have been paid this month and therefore will not be paid again. The payslip will not be stored in the database.
+If the employee has been paid, you will be brought to an error screen notifying you that they have already been paid this month and therefore will not be paid again. The payslip will not be stored in the database.
 
 ![Screenshot of error notification](./img/docs/s3-1.png)
 
@@ -104,11 +104,13 @@ UI is not tested. Tests are written within the [Jest](https://jestjs.io) test fr
 ## Future improvements
 - Refactor DynamoDB structure to use lastName as primary key (rather than firstName)
 - More robust searching
-    - Name transformation (search with toUpperCase() or toLowerCase()) when searching and storing names
+    - Name transformation (search with `toUpperCase()` or `toLowerCase()`) when searching and storing names
     - Convert name to sentence case on display of payslip (this can have some issues with names containing multiple components, e.g.: McDonald, de Souza, Smith-Jones, etc.)
+- Refactor Javascript to be more modular
 - Refactor Javascript to use Payee object
 - `HAS_ROUNDING` flag in `CONST` to enable/disable rounding of dollar values
 - Reset/'Generate another' buttons
+- Use SCSS
 - [Use toLocaleString() for date](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314)
 - More sophisticated validation on form (super cannot be already in percentage format (e.g.: 0.09 instead of 9), reasonable super rates)
 

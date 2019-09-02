@@ -1,7 +1,7 @@
 {
   "name": "201908myobcodechallenge",
   "version": "1.0.0",
-  "description": "## Overview ### THE CHALLENGE: HR PAYROLL SYSTEM When I input the employee's details: first name, last name, annual salary and super rate, the program should generate a payslip information with name, pay period, gross income, income tax, net income and super. The program should store the payslip information internally for audit purposes. It should also prevent me from paying an employee who already received payment for the month.",
+  "description": "HR PAYROLL SYSTEM",
   "main": "js/main.js",
   "scripts": {
     "test": "jest"
