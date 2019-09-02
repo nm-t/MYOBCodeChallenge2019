@@ -33,32 +33,32 @@ _List the reasons for your choice in technology stack._
 
 - Front End
     - HTML/CSS/Javascript
-    - jQuery
+    - [jQuery](https://jquery.com/)
         - Makes for more readable code, and simplified Javascript
 - Tooling
-    - npm
+    - [npm](https://www.npmjs.com/)
         - Most familiar with npm (over Grunt/Gulp/Yarn/etc.)
-    - Express
+    - [Express](https://expressjs.com/en/starter/static-files.html)
         - Easy to set up
         - Prevents CORS issues caused due to `type="module"` attribute on Javascript script tags
-    - Jest
+    - [Jest](https://jestjs.io)
         - Simple test framework for Javascript
-    - Netlify
+    - [Netlify](https://www.netlify.com/)
         - Free and simple to use
 - Back End
-    - Amazon Web Services (AWS)
+    - [Amazon Web Services (AWS)](https://aws.amazon.com)
         - Already have AWS account
         - Have used AWS for numerous other projects
-    - AWS API Gateway
+    - [AWS API Gateway](https://aws.amazon.com/api-gateway/)
         - Allows easy configuration to set up an API
         - Works well within AWS ecosystem
-    - AWS DynamoDB
+    - [AWS DynamoDB](https://aws.amazon.com/dynamodb/)
         - AWS-based database, easily accessible via AWS' API Gateway
 
 ### Running the application
 _Provide instructions on how to run the application._
 
-Please note that you must be connected to the internet for the program to run successfully - this is due to the API and database's hosting on AWS.
+Please note that you must be connected to the internet for the program to run successfully - both the API and database's are hosted on AWS.
 
 __Locally:__ From the CLI, run `node server.js`. In the browser, navigate to `localhost:3000`.
 
