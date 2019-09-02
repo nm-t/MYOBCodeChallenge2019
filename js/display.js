@@ -8,6 +8,8 @@ import {
     formatDollarValue
 } from './main.js';
 
+const $container = $('main');
+
 let firstName,
     familyName,
     annualSalary,
@@ -20,8 +22,6 @@ let firstName,
     pay;
 
 function generatePayslip(firstName, familyName, annualSalary, superRate) {
-    const $container = $('main');
-
     const dateObj = new Date();
     let date = dateObj.getDate();
     let monthIndex = dateObj.getMonth();
@@ -202,6 +202,15 @@ function payEmployee() {
     });
 }
 
+/**
+ * displayOutcome(dateString)
+ * @param {string} status Status of outcome (error/success)
+ * @param {string} message Message to display to user
+ * Displays a message to the user and applies a class,
+ * depending on the status.
+ */
 function displayOutcome(status, message) {
-
+    $container.html(`` +
+        `<h1 class="is-${status}">${message}</h1>` +
+    ``);
 }
