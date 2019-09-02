@@ -31,26 +31,57 @@ _List any assumptions that you have made in order to solve this problem._
 ### Technology stack
 _List the reasons for your choice in technology stack._
 
+- Front End
+    - HTML/CSS/Javascript
+    - jQuery
+        - Makes for more readable code, and simplified Javascript
+- Tooling
+    - npm
+        - Most familiar with npm (over Grunt/Gulp/Yarn/etc.)
+    - Express
+        - Easy to set up
+        - Prevents CORS issues caused due to `type="module"` attribute on Javascript script tags
+    - Jest
+        - Simple test framework for Javascript
+    - Netlify
+        - Free and simple to use
+- Back End
+    - Amazon Web Services (AWS)
+        - Already have AWS account
+        - Have used AWS for numerous other projects
+    - AWS API Gateway
+        - Allows easy configuration to set up an API
+        - Works well within AWS ecosystem
+    - AWS DynamoDB
+        - AWS-based database, easily accessible via AWS' API Gateway
+
 ### Running the application
 _Provide instructions on how to run the application._
+
+Please note that you must be connected to the internet for the program to run successfully - this is due to the API and database's hosting on AWS.
+
+__Locally:__ From the CLI, run `node server.js`. In the browser, navigate to `localhost:3000`.
+
+__Live:__ https://unruffled-minsky-7bbadc.netlify.com/
 
 ### Testing
 _Provide a test harness to validate your solution._
 
-From the CLI, run `npm run test`. Tests are written within the [Jest](https://jestjs.io) test framework.
+From the CLI, run `npm run test`. Only financial functions are tested.
+UI is not tested. Tests are written within the [Jest](https://jestjs.io) test framework.
 
 ## Future improvements
 
+- Refactor DynamoDB structure to use lastName as primary key (rather than firstName)
+- Refactor Javascript to use Payee object
 - HAS_ROUNDING flag in CONST to enable/disable rounding of dollar values
-- More sophisticated validation on form (super cannot be already in percentage format (e.g.: 0.09 instead of 9), reasonable super rates)
 - Reset/'Generate another' buttons
 - [Use toLocaleString() for date](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314)
-- Refactor query to use lastName as primary key (rather than firstName)
-- Refactor to use Payee object
+- More sophisticated validation on form (super cannot be already in percentage format (e.g.: 0.09 instead of 9), reasonable super rates)
 
 ## Resources
+- Styles adapted from [Bootstrap](https://getbootstrap.com/docs/3.3/components/)
 - [AWS API Gateway and DynamoDB](https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-as-a-proxy-for-dynamodb/)
 - [Listing multiple resources in an IAM role](https://forums.aws.amazon.com/thread.jspa?threadID=220021)
 - [The API must be deployed/redeployed once the CORS support settings have been updated](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html)
 - [Favicon Gallery](https://www.favicon-generator.org/search/TURQUIOSE/)
-- Styles adapted from [Bootstrap](https://getbootstrap.com/docs/3.3/components/)
