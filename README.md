@@ -26,6 +26,7 @@ Notes: All calculation results should be rounded to the whole dollar. If >= 50 c
 _List any assumptions that you have made in order to solve this problem._
 
 - Tax rates for 2012 - 2013 apply
+- When searching for a payee, the program uses the first entry found in the database matching first and last name
 
 ### Technology stack
 _List the reasons for your choice in technology stack._
@@ -44,6 +45,8 @@ From the CLI, run `npm run test`. Tests are written within the Jest test framewo
 - Validation on form (required fields, super cannot be already in percentage format (e.g.: 0.09 instead of 9))
 - Reset/'Generate another' buttons
 - [Use toLocaleString() for date](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314)
+- Refactor query to use lastName as primary key (rather than firstName)
+- Refactor to use Payee object
 
 ## Resources
 - [AWS API Gateway and DynamoDB](https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-as-a-proxy-for-dynamodb/)

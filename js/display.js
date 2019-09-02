@@ -69,6 +69,10 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
         `</table>` +
         `<button class="pay-employee">Pay</button>`
     );
+
+    $('.pay-employee').on('click', function() {
+        checkEmployee();
+    });
 }
 
 $('.generate-payslip').on('click', function(e) {
@@ -79,3 +83,79 @@ $('.generate-payslip').on('click', function(e) {
     superRate = Number($('.super-rate').val()) * 1/100;
     generatePayslip(firstName, familyName, annualSalary, superRate);
 });
+
+/**
+ * checkEmployee()
+ * Makes a GET Ajax call to query database according to firstName,
+ * then checks if there's a match on lastName,
+ * then checks if the employee has been paid this month.
+ */
+function checkEmployee() {
+    // Query the database for the payee
+    var dbResponse;
+    $.ajax({
+        type: "GET",
+        url: `https://nfwrihtz7i.execute-api.ap-southeast-2.amazonaws.com/Prod/employees/firstName?firstName=${firstName}`,
+        async: false,
+        success: function(data) {
+            dbResponse = data;
+        }
+    });
+    dbResponse = dbResponse.employees;
+
+    // Employee doesn't exist in the database, proceed to pay
+    if (dbResponse.length == 0) {
+        payEmployee();
+    }
+    // Results were found, determine whether or not the employee should be paid
+    else {
+        let payee;
+        for (let i = 0; i < dbResponse.length; i++) {
+            // Proceed as soon as a match is found
+            if (dbResponse[i].lastName === familyName) {
+                payee = dbResponse[i];
+                break;
+            }
+        }
+
+        // Check to see if the employee has been paid this month
+        if (payee !== undefined) {
+            const paidThisMonth = hasBeenPaidThisMonth(payee.payDate);
+            if (!paidThisMonth) {
+                payEmployee();
+            }
+            else {
+                displayOutcome('error', 'User has already been paid this month');
+            }
+        }
+        // Employee doesn't exist in the database, proceed to pay
+        else {
+            payEmployee();
+        }
+    }
+}
+
+/**
+ * hasBeenPaidThisMonth(dateString)
+ * @param {string} dateString Date to parse
+ * Checks date in payslip against today's date.
+ * If the months match, the employee has been paid this month.
+ */
+function hasBeenPaidThisMonth(dateString) {
+    let dateComponents = dateString.split('-');
+    let payslipMonth = Number(dateComponents[1]);
+
+    const dateObj = new Date();
+    // Add 1 to make month human-readable
+    const currentMonth = dateObj.getMonth() + 1;
+
+    return payslipMonth === currentMonth;
+}
+
+function payEmployee() {
+
+}
+
+function displayOutcome(status, message) {
+
+}
