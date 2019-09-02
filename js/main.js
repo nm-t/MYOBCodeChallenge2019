@@ -140,7 +140,7 @@ function calculatePay(annualSalary, superRate) {
 /**
  * formatDollarValue(unformattedDollarValue)
  * @param {*} unformattedDollarValue Dollar value to be formatted
- * Returns formatted dollar value in the form of $XX,XXX.XX
+ * Returns formatted dollar value in the form of $XX,XXX.00
  */
 function formatDollarValue(unformattedDollarValue) {
     let dollarValue = Number(unformattedDollarValue);

@@ -21,10 +21,12 @@ let firstName,
     superValue,
     pay;
 
+// Hide the validation error as soon as the user starts typing again
 $('input').on('keydown', function() {
     $('.validation-error').hide();
 });
 
+// Event listener for 'Generate Payslip' button to take in field values
 $('.generate-payslip').on('click', function(e) {
     e.preventDefault();
     firstName = $('.first-name').val();
@@ -32,14 +34,25 @@ $('.generate-payslip').on('click', function(e) {
     annualSalary = $('.annual-salary').val();
     superRate = Number($('.super-rate').val()) * 1/100;
 
+    // Proceed only if all fields have been populated
     if (firstName && familyName && annualSalary && superRate) {
         generatePayslip(firstName, familyName, annualSalary, superRate);
     }
+    // Display an error
     else {
         $('.validation-error').show();
     }
 });
 
+/**
+ * generatePayslip(firstName, familyName, annualSalary, superRate)
+ * @param {string} firstName Employee's first name
+ * @param {string} familyName Employee's family/last name
+ * @param {string} annualSalary Employee's annual salary
+ * @param {string} superRate Super rate to be applied to salary
+ * Formats input to display back to user in a tabular payslip.
+ * Also acts to store data in preparation for GET/POST.
+ */
 function generatePayslip(firstName, familyName, annualSalary, superRate) {
     const dateObj = new Date();
     let date = dateObj.getDate();
@@ -64,6 +77,7 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
     superValue = calculateSuper(grossIncome, superRate);
     pay = calculatePay(annualSalary, superRate);
 
+    // Update the UI with the payslip table
     $container.html(`` +
         `<h1>Payslip</h1>` +
         `<h2>${firstName} ${familyName}</h2>` +
@@ -106,6 +120,7 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
         `<button class="pay-employee">Pay</button>`
     );
 
+    // Add event listener to new 'Pay Employee' button
     $('.pay-employee').on('click', function() {
         checkEmployee();
     });
@@ -113,6 +128,9 @@ function generatePayslip(firstName, familyName, annualSalary, superRate) {
 
 /**
  * checkEmployee()
+ * Checks to see if the employee exists in the database and 
+ * if they should be paid this month.
+ * 
  * Makes a GET Ajax call to query database according to firstName,
  * then checks if there's a match on lastName,
  * then checks if the employee has been paid this month.
@@ -183,10 +201,8 @@ function hasBeenPaidThisMonth(dateString) {
 }
 
 /**
- * payEmployee(dateString)
- * @param {string} dateString Date to parse
- * Checks date in payslip against today's date.
- * If the months match, the employee has been paid this month.
+ * payEmployee()
+ * Stores the payslip information into the database via POST.
  */
 function payEmployee() {
     $.ajax({
