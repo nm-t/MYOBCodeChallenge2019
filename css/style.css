@@ -10,6 +10,14 @@ main {
     margin: 0 auto;
 }
 
+h1 {
+    margin-bottom: 7px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
 fieldset {
     border: none;
     padding: 0;
@@ -93,6 +101,26 @@ input {
     border-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    height: 37px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+tr:nth-of-type(2n) {
+    background-color: white;
+}
+
+th {
+    text-align: left;
+    padding-left: 9px;
 }
 
 button,
