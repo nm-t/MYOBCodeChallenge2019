@@ -25,8 +25,10 @@ Notes: All calculation results should be rounded to the whole dollar. If >= 50 c
 ### Assumptions
 _List any assumptions that you have made in order to solve this problem._
 
-- Tax rates for 2012 - 2013 apply
+- Names are entered exactly as they are in the database
+    - e.g.: Nathalia is not equal to NATHALIA
 - When searching for a payee, the program uses the first entry found in the database matching first and last name
+- Tax rates for 2012 - 2013 apply
 
 ### Technology stack
 _List the reasons for your choice in technology stack._
@@ -73,6 +75,9 @@ UI is not tested. Tests are written within the [Jest](https://jestjs.io) test fr
 ## Future improvements
 
 - Refactor DynamoDB structure to use lastName as primary key (rather than firstName)
+- More robust searching
+    - Name transformation (search with toUpperCase() or toLowerCase()) when searching and storing names
+    - Convert name to sentence case on display of payslip (this can have some issues with names containing multiple components, e.g.: McDonald, de Souza, Smith-Jones, etc.)
 - Refactor Javascript to use Payee object
 - HAS_ROUNDING flag in CONST to enable/disable rounding of dollar values
 - Reset/'Generate another' buttons
