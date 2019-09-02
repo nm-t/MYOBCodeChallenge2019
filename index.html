@@ -5,19 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MYOB Code Challenge - Nathalia Tan</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <main>
         <h1>Employee Info</h1>
         <form>
             <fieldset>
-                <div class="details-name">
-                    <input class="first-name" autocomplete="given-name" placeholder="Firstname" aria-label="First name">
-                    <input class="family-name" autocomplete="family-name" placeholder="Lastname" aria-label="Family name">
+                <div class="input-row">
+                    <div class="input-group">
+                        <input class="first-name" autocomplete="given-name" placeholder="Firstname" aria-label="First name">
+                    </div>
+                    <div class="input-group">
+                        <input class="family-name" autocomplete="family-name" placeholder="Lastname" aria-label="Family name">
+                    </div>
                 </div>
-                <div class="details-financial">
-                    <input class="annual-salary" type="number" placeholder="Annual Salary" aria-label="Annual salary">
-                    <input class="super-rate" type="number" placeholder="Super Rate">
+                <div class="input-row">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input class="annual-salary" type="number" placeholder="Annual Salary" aria-label="Annual salary">
+                        <span class="input-group-addon">.00</span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">%</span>
+                        <input class="super-rate" type="number" placeholder="Super Rate">
+                    </div>
                 </div>
             </fieldset>
             <button class="generate-payslip">Generate Payslip</button>

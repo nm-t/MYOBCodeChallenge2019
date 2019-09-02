@@ -1,0 +1,112 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+main {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 50%;
+}
+
+.input-group:first-child {
+    padding-right: 10px;
+}
+
+.input-group:last-child {
+    padding-left: 10px;
+}
+
+input {
+    box-sizing: border-box;
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.input-group input {
+    line-height: 1.42857143;
+}
+
+.input-group input:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.input-group input:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group input:only-child {
+    border-radius: 4px;
+}
+
+.input-group-addon {
+    display: table-cell;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group-addon:first-child {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group-addon:last-child {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+button,
+.cta {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #337ab7;
+    text-decoration: none;
+    float: right;
+}

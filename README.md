@@ -53,3 +53,4 @@ From the CLI, run `npm run test`. Tests are written within the [Jest](https://je
 - [Listing multiple resources in an IAM role](https://forums.aws.amazon.com/thread.jspa?threadID=220021)
 - [The API must be deployed/redeployed once the CORS support settings have been updated](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html)
 - [Favicon Gallery](https://www.favicon-generator.org/search/TURQUIOSE/)
+- Styles adapted from [Bootstrap](https://getbootstrap.com/docs/3.3/components/)
